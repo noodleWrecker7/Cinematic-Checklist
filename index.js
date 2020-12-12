@@ -1,29 +1,29 @@
 var list;
 var inputs = [];
+
 function loadList() {
     let req = new XMLHttpRequest();
     req.open("GET", "mcu.json");
     req.onreadystatechange = function () {
         if (this.readyState != 4) return;
-        console.log(this.readyState);
         list = JSON.parse(this.responseText);
 
 
         let phaseNum = 0;
         let bodyOut = "";
         list.forEach(function (phase) {
-            phaseNum ++;
+            phaseNum++;
             bodyOut += "<div class=\"row\">\n" +
-                "        <p>Phase "+phaseNum+":</p>\n" +
+                "        <p>Phase " + phaseNum + ":</p>\n" +
                 "    </div>";
-            phase.forEach(function(movie){
+            phase.forEach(function (movie) {
                 inputs.push(movie.id);
 
-                if(movie.stone != null) {
+                if (movie.stone != null) {
                     bodyOut += "<div class=\"row\">\n" +
                         "        <input id=\"" + movie.id + "\" name=\"" + movie.id + "\" type=\"checkbox\" onclick=\"save(this.id)\">\n" +
-                        "        <label for=\"" + movie.id + "\" class=\""+movie.stone+"\">" + movie.title + " (" + movie.year + ")\n" +
-                        "            <object type=\"image/svg+xml\" data=\""+movie.stone+"%20gem.svg\" class=\"gem\">\n" +
+                        "        <label for=\"" + movie.id + "\" class=\"" + movie.stone + "\">" + movie.title + " (" + movie.year + ")\n" +
+                        "            <object type=\"image/svg+xml\" data=\"" + movie.stone + "%20gem.svg\" class=\"gem\">\n" +
                         "            </object>\n" +
                         "        </label>\n" +
                         "    </div>"
@@ -42,7 +42,6 @@ function loadList() {
 }
 
 function setup() {
-    console.log(list);
     load();
     update();
 }
@@ -54,9 +53,9 @@ function save(id) {
     update();
 }
 
-function load () {
-    inputs.forEach(function(item) {
-        var checked = JSON.parse(localStorage.getItem('nw7list-'+ item));
+function load() {
+    inputs.forEach(function (item) {
+        var checked = JSON.parse(localStorage.getItem('nw7list-' + item));
         document.getElementById(item).checked = checked;
     });
 }

@@ -9,19 +9,22 @@ body {
     align-items: flex-end;
 
     font-family: 'Open Sans', sans-serif;
-    background-color: mintcream;
-    color: darkslategray;
+    /*background-color: mintcream;*/
+    background-image: linear-gradient(to bottom right, #e52d3e, #5f257a);
+    /*color: darkslategray;*/
+    color: whitesmoke;
 }
 
 nav {
     width: 100%;
-    background-color: #e5f6ea;
+    /*color: #e5f6ea;*/
+    background-color: rgba(230, 250, 230, .1);
     text-align: center;
     font-family: 'Open Sans', sans-serif;
     font-size: 7vh;
     padding-bottom: 2vh;
     padding-top: 1vh;
-    color: darkred;
+    color: #ffffff;
 }
 
 div.container {
@@ -31,7 +34,7 @@ div.container {
 }
 
 #big-ass-box {
-    height: 64vh;
+    height: 68vh;
     overflow: auto;
     padding-top: 2vh;
     width: 95vw;
